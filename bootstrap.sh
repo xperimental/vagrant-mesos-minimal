@@ -37,6 +37,7 @@ echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | \
 sudo apt-get update
 sudo apt-get install haproxy -t trusty-backports
 sudo cp /vagrant/haproxy.cfg /etc/haproxy/haproxy.cfg
+sudo service haproxy reload
 
 # Install bamboo
 sudo tar -xvzf /vagrant/bamboo-0-2-11.tar.gz -C /usr/local/
