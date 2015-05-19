@@ -44,6 +44,7 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
+    vb.name = "local-mesos"
     vb.cpus = 2
     vb.memory = "2048"
   end
