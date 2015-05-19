@@ -27,6 +27,10 @@ echo 'local-mesos' | sudo tee /etc/mesos-master/cluster
 echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
 echo '5mins' | sudo tee /etc/mesos-slave/executor_registration_timeout
 
+# Configure Marathon
+sudo mkdir -p /etc/marathon/conf
+echo 'http_callback' | sudo tee /etc/marathon/conf/event_subscriber
+
 # Install HAProxy
 echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | \
   sudo tee /etc/apt/sources.list.d/backports.list
