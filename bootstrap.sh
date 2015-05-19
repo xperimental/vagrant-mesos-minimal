@@ -45,7 +45,7 @@ sudo cp /vagrant/bamboo.conf /vagrant/haproxy_template.cfg /etc/bamboo/
 sudo cp /vagrant/bamboo.init /etc/init/bamboo.conf
 
 # Start everything
-service mesos-master start
-service mesos-slave start
-service marathon start
-service bamboo start
+sudo service mesos-master start
+sudo service mesos-slave start
+sudo service marathon start
+sudo service bamboo start
