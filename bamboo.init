@@ -1,0 +1,12 @@
+description "Bamboo"
+author "sebastian"
+start on runlevel [2345]
+stop on runlevel [!2345]
+console log
+respawn
+
+chdir /usr/local/bamboo/
+
+script
+  /usr/local/bamboo/bamboo -config /etc/bamboo/bamboo.conf
+end script

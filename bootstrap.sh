@@ -25,3 +25,15 @@ sudo service zookeeper start
 # Configure Mesos
 echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
 echo '5mins' | sudo tee /etc/mesos-slave/executor_registration_timeout
+
+# Install HAProxy
+echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | \
+  sudo tee /etc/apt/sources.list.d/backports.list
+sudo apt-get update
+sudo apt-get install haproxy -t trusty-backports
+
+# Install bamboo
+sudo tar -xvzf /vagrant/bamboo-0-2-11.tar.gz -C /usr/local/
+sudo mkdir -p /etc/bamboo/
+sudo cp /vagrant/bamboo.conf /vagrant/haproxy_template.cfg /etc/bamboo/
+sudo cp /vagrant/bamboo.init /etc/init/bamboo.conf
