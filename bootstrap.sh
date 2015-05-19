@@ -23,6 +23,7 @@ echo 1 | sudo tee /etc/zookeeper/conf/myid
 sudo service zookeeper start
 
 # Configure Mesos
+echo 'local-mesos' | sudo tee /etc/mesos-master/cluster
 echo 'docker,mesos' | sudo tee /etc/mesos-slave/containerizers
 echo '5mins' | sudo tee /etc/mesos-slave/executor_registration_timeout
 
