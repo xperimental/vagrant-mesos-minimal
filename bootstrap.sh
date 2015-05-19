@@ -37,3 +37,9 @@ sudo tar -xvzf /vagrant/bamboo-0-2-11.tar.gz -C /usr/local/
 sudo mkdir -p /etc/bamboo/
 sudo cp /vagrant/bamboo.conf /vagrant/haproxy_template.cfg /etc/bamboo/
 sudo cp /vagrant/bamboo.init /etc/init/bamboo.conf
+
+# Start everything
+service mesos-master start
+service mesos-slave start
+service marathon start
+service bamboo start
