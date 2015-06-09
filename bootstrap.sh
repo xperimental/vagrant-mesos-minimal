@@ -45,8 +45,12 @@ sudo mkdir -p /etc/bamboo/
 sudo cp /vagrant/bamboo.conf /vagrant/haproxy_template.cfg /etc/bamboo/
 sudo cp /vagrant/bamboo.init /etc/init/bamboo.conf
 
+# Download registry
+sudo docker pull registry
+
 # Start everything
 sudo service mesos-master start
 sudo service mesos-slave start
 sudo service marathon start
 sudo service bamboo start
+sudo docker run --name registry -p 5000:5000 -d registry
