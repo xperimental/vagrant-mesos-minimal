@@ -9,10 +9,12 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "local-mesos"
+    vb.name = "mesos-minimal"
     vb.cpus = 2
     vb.memory = "2048"
   end
+
+  config.vm.hostname = "mesos-minimal"
 
   config.vm.provision "shell", path: "bootstrap.sh"
 
