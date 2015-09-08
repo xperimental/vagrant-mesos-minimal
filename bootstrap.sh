@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # Install docker
 wget -qO- https://get.docker.com/ | sh
@@ -53,4 +53,4 @@ sudo service mesos-master start
 sudo service mesos-slave start
 sudo service marathon start
 sudo service bamboo start
-sudo docker run --name registry -p 5000:5000 -d registry
+sudo docker run --name registry --restart=always -p 5000:5000 -d registry
